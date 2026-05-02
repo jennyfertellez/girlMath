@@ -1,5 +1,8 @@
 # GirlMath
 
+![Coverage](.github/badges/jacoco.svg)
+![Branches](.github/badges/branches.svg)
+
 GirlMath is a personal finance tool built for first-generation individuals who are breaking the cycle of financial survival mode. It helps users get out of debt, plan their savings goals, and start investing in their future.
 
 ## 🧠 The Problem
