@@ -34,6 +34,6 @@ public class SavingsGoalController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteGoal(@PathVariable Long id) {
         savingsGoalService.deleteGoal(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }
