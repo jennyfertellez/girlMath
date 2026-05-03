@@ -33,4 +33,7 @@ public class Debt {
 
     @Column(nullable = false)
     private String debtType;
+
+    @Column
+    private Double creditLimit;
 }

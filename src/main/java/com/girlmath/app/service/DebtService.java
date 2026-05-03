@@ -30,6 +30,7 @@ public class DebtService {
         existing.setMinimumPayment(updateDebt.getMinimumPayment());
         existing.setMonthlyBudget(updateDebt.getMonthlyBudget());
         existing.setDebtType(updateDebt.getDebtType());
+        existing.setCreditLimit(updateDebt.getCreditLimit());
         return debtRepository.save(existing);
     }
 

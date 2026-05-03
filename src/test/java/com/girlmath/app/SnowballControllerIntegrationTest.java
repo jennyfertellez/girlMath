@@ -44,7 +44,7 @@ class SnowballControllerIntegrationTest {
 
     @Test
     void shouldReturnPayoffTimeline_whenDebtsExist() throws Exception {
-        Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD");
+        Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 1500.0);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -58,7 +58,7 @@ class SnowballControllerIntegrationTest {
 
     @Test
     void shouldPayOffFaster_withExtraPayment() throws Exception {
-        Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD");
+        Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 3000.0);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -82,7 +82,7 @@ class SnowballControllerIntegrationTest {
 
     @Test
     void shouldReturnMonthField_inEachEntry() throws Exception {
-        Debt debt = new Debt(null, "Medical Bill", 500.0, 0.0, 100.0, 100.0, "MEDICAL");
+        Debt debt = new Debt(null, "Medical Bill", 500.0, 0.0, 100.0, 100.0, "MEDICAL", 500.0);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
