@@ -39,4 +39,7 @@ public class Debt {
 
     @Column
     private String customDebtType;
+
+    @Column
+    private Boolean paidOff = false;
 }

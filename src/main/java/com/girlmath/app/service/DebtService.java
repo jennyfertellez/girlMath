@@ -32,6 +32,7 @@ public class DebtService {
         existing.setDebtType(updateDebt.getDebtType());
         existing.setCreditLimit(updateDebt.getCreditLimit());
         existing.setCustomDebtType(updateDebt.getCustomDebtType());
+        existing.setPaidOff(updateDebt.getPaidOff());
         return debtRepository.save(existing);
     }
 
