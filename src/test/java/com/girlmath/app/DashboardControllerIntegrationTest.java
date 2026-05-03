@@ -53,8 +53,8 @@ class DashboardControllerIntegrationTest {
 
     @Test
     void shouldReturnCorrectTotalDebt_whenDebtsExist() throws Exception {
-        Debt debt1 = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 120000.0);
-        Debt debt2 = new Debt(null, "Student Loan", 18500.0, 5.05, 190.0, 250.0, "STUDENT_LOAN", 100000.0);
+        Debt debt1 = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 120000.0, null);
+        Debt debt2 = new Debt(null, "Student Loan", 18500.0, 5.05, 190.0, 250.0, "STUDENT_LOAN", 100000.0, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -105,7 +105,7 @@ class DashboardControllerIntegrationTest {
 
     @Test
     void shouldReturnMonthsToDebtFree_whenDebtsExist() throws Exception {
-        Debt debt = new Debt(null, "Medical Bill", 500.0, 0.0, 100.0, 100.0, "MEDICAL", 500.0);
+        Debt debt = new Debt(null, "Medical Bill", 500.0, 0.0, 100.0, 100.0, "MEDICAL", 500.0, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)

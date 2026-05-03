@@ -31,6 +31,7 @@ public class DebtService {
         existing.setMonthlyBudget(updateDebt.getMonthlyBudget());
         existing.setDebtType(updateDebt.getDebtType());
         existing.setCreditLimit(updateDebt.getCreditLimit());
+        existing.setCustomDebtType(updateDebt.getCustomDebtType());
         return debtRepository.save(existing);
     }
 

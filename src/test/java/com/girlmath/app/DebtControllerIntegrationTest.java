@@ -44,7 +44,7 @@ class DebtControllerIntegrationTest {
 
     @Test
     void shouldCreateDebt_andReturnIt() throws Exception {
-        Debt debt = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 5000.0);
+        Debt debt = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 5000.0, null);
 
         mockMvc.perform(post("/api/debts")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -57,8 +57,8 @@ class DebtControllerIntegrationTest {
 
     @Test
     void shouldReturnAllDebts_afterMultipleCreated() throws Exception {
-        Debt debt1 = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 5000.0);
-        Debt debt2 = new Debt(null, "Student Loan", 18500.0, 5.05, 190.0, 250.0, "STUDENT_LOAN", 100000.0);
+        Debt debt1 = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 5000.0, null);
+        Debt debt2 = new Debt(null, "Student Loan", 18500.0, 5.05, 190.0, 250.0, "STUDENT_LOAN", 100000.0, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,7 +75,7 @@ class DebtControllerIntegrationTest {
 
     @Test
     void shouldDeleteDebt_andReturnNoContent() throws Exception {
-        Debt debt = new Debt(null, "Medical Bill", 1200.0, 0.0, 50.0, 100.0, "MEDICAL", 1200.0);
+        Debt debt = new Debt(null, "Medical Bill", 1200.0, 0.0, 50.0, 100.0, "MEDICAL", 1200.0, null);
 
         String response = mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -96,7 +96,7 @@ class DebtControllerIntegrationTest {
 
     @Test
     void shouldUpdateDebt_andReturnUpdated() throws Exception {
-        Debt debt = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 3000.0);
+        Debt debt = new Debt(null, "Chase Credit Card", 2500.0, 24.99, 65.0, 200.0, "CREDIT_CARD", 3000.0, null);
 
         String response = mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)

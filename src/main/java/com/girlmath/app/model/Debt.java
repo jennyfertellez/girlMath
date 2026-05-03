@@ -36,4 +36,7 @@ public class Debt {
 
     @Column
     private Double creditLimit;
+
+    @Column
+    private String customDebtType;
 }
