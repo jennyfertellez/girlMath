@@ -42,4 +42,7 @@ public class Debt {
 
     @Column
     private Boolean paidOff = false;
+
+    @Column
+    private Integer paymentDueDate;
 }

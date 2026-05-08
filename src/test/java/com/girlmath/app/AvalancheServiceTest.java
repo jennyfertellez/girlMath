@@ -27,14 +27,14 @@ public class AvalancheServiceTest {
 
     @Test
     void avalanche_shouldPayOffDebt_inExpectedMonths() {
-        Debt debt = new Debt(null, "Test Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 2500.0, null, false);
+        Debt debt = new Debt(null, "Test Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 2500.0, null, false, null);
         List<Map<String, Object>> result = avalancheService.calculateAvalanche(List.of(debt), 0.0);
         assertEquals(10,  result.size());
     }
 
     @Test
     void avalanche_shouldPayOffFaster_withExtraPayment() {
-        Debt debt = new Debt(null, "Test Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 2500.0, null, false);
+        Debt debt = new Debt(null, "Test Card", 1000.0, 0.0, 100.0, 100.0, "CREDIT_CARD", 2500.0, null, false, null);
         List<Map<String, Object>> withoutExtra = avalancheService.calculateAvalanche(List.of(debt), 0.0);
         List<Map<String, Object>> withExtra = avalancheService.calculateAvalanche(List.of(debt), 200.0);
         assertTrue(withExtra.size() < withoutExtra.size());
@@ -42,8 +42,8 @@ public class AvalancheServiceTest {
 
     @Test
     void avalanche_shouldSortByInterestRate_highestFirst() {
-        Debt highInterest = new Debt(null, "High Interest", 1000.0, 25.0, 50.0, 50.0, "CREDIT_CARD", 2500.0, null, false);
-        Debt lowInterest = new Debt(null, "Low Interest", 1000.0, 5.0, 50.0, 50.0, "STUDENT_LOAN", 3000.0, null, false);
+        Debt highInterest = new Debt(null, "High Interest", 1000.0, 25.0, 50.0, 50.0, "CREDIT_CARD", 2500.0, null, false, null);
+        Debt lowInterest = new Debt(null, "Low Interest", 1000.0, 5.0, 50.0, 50.0, "STUDENT_LOAN", 3000.0, null, false, null);
         List<Map<String, Object>> result = avalancheService.calculateAvalanche(
                 List.of(lowInterest, highInterest), 100.0);
         // High interest debt should be paid off first
@@ -62,9 +62,9 @@ public class AvalancheServiceTest {
 
     @Test
     void avalanche_shouldHandleMultipleDebts() {
-        Debt debt1 = new Debt(null, "Card A", 500.0, 20.0, 50.0, 50.0, "CREDIT_CARD", 2500.0, null, false);
-        Debt debt2 = new Debt(null, "Card B", 1000.0, 15.0, 75.0, 75.0, "CREDIT_CARD", 2500.0, null, false);
-        Debt debt3 = new Debt(null, "Loan", 2000.0, 5.0, 100.0, 100.0, "STUDENT_LOAN", 3000.0, null, false);
+        Debt debt1 = new Debt(null, "Card A", 500.0, 20.0, 50.0, 50.0, "CREDIT_CARD", 2500.0, null, false, null);
+        Debt debt2 = new Debt(null, "Card B", 1000.0, 15.0, 75.0, 75.0, "CREDIT_CARD", 2500.0, null, false, null);
+        Debt debt3 = new Debt(null, "Loan", 2000.0, 5.0, 100.0, 100.0, "STUDENT_LOAN", 3000.0, null, false, null);
         List<Map<String, Object>> result = avalancheService.calculateAvalanche(
                 List.of(debt1, debt2, debt3), 0.0);
         assertFalse(result.isEmpty());

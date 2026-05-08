@@ -46,7 +46,7 @@ class AvalancheControllerIntegrationTest {
     @Test
     void shouldReturnPayoffTimeline_whenDebtsExist() throws Exception {
         Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0,
-                100.0, 100.0, "CREDIT_CARD", null, null, false);
+                100.0, 100.0, "CREDIT_CARD", null, null, false, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -61,9 +61,9 @@ class AvalancheControllerIntegrationTest {
     @Test
     void shouldSortByHighestInterest_first() throws Exception {
         Debt highInterest = new Debt(null, "High Interest Card", 1000.0, 25.0,
-                50.0, 50.0, "CREDIT_CARD", null, null, false);
+                50.0, 50.0, "CREDIT_CARD", null, null, false, null);
         Debt lowInterest = new Debt(null, "Low Interest Loan", 1000.0, 5.0,
-                50.0, 50.0, "STUDENT_LOAN", null, null, false);
+                50.0, 50.0, "STUDENT_LOAN", null, null, false, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -81,9 +81,9 @@ class AvalancheControllerIntegrationTest {
     @Test
     void shouldExcludePaidOffDebts() throws Exception {
         Debt activeDebt = new Debt(null, "Active Card", 1000.0, 20.0,
-                100.0, 100.0, "CREDIT_CARD", null, null, false);
+                100.0, 100.0, "CREDIT_CARD", null, null, false, null);
         Debt paidDebt = new Debt(null, "Paid Off Card", 500.0, 15.0,
-                50.0, 50.0, "CREDIT_CARD", null, null, true);
+                50.0, 50.0, "CREDIT_CARD", null, null, true, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -106,7 +106,7 @@ class AvalancheControllerIntegrationTest {
     @Test
     void shouldPayOffFaster_withExtraPayment() throws Exception {
         Debt debt = new Debt(null, "Chase Credit Card", 1000.0, 0.0,
-                100.0, 100.0, "CREDIT_CARD", null, null, false);
+                100.0, 100.0, "CREDIT_CARD", null, null, false, null);
 
         mockMvc.perform(post("/api/debts")
                 .contentType(MediaType.APPLICATION_JSON)
